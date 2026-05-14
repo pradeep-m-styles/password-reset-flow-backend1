@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 /**
  * Creates a nodemailer transporter using Gmail 
  */
-const nodemailer = require("nodemailer");
+
 
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
