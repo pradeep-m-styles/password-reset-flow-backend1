@@ -3,14 +3,23 @@ const nodemailer = require("nodemailer");
 /**
  * Creates a nodemailer transporter using Gmail 
  */
+const nodemailer = require("nodemailer");
+
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: process.env.EMAIL_PORT,
+  host: "smtp-relay.brevo.com",
+  port: 587,
   secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  tls: {
+    rejectUnauthorized: false,
+    ciphers: "SSLv3"
+  },
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
 });
 
 /**
